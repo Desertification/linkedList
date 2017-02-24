@@ -7,6 +7,14 @@ import org.junit.jupiter.api.Test;
  */
 class LinkedListTest {
     @Test
+    void last() {
+        Assert.assertEquals("1",linkedList.last());
+        linkedList.prepend("2");
+        Assert.assertEquals("2",linkedList.first());
+        Assert.assertEquals("1",linkedList.last());
+    }
+
+    @Test
     void tail() {
         linkedList.prepend("2");
         LinkedList<String> result = linkedList.tail();

@@ -50,6 +50,17 @@ public class LinkedList<T> {
     }
 
     /**
+     * @return the last element of the list
+     */
+    public T last() {
+        Node cursor = head;
+        while (cursor.next() != null){
+            cursor = cursor.next();
+        }
+        return cursor.get();
+    }
+
+    /**
      * @return the linked list without the head element
      */
     public LinkedList<T> tail(){
