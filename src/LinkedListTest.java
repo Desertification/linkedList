@@ -41,4 +41,11 @@ class LinkedListTest {
         Assert.assertEquals(1, linkedList.size());
         Assert.assertEquals(false, linkedList.isEmpty());
     }
+
+    @org.junit.jupiter.api.Test
+    void testTailWithOneElement(){
+        LinkedList<String> result = linkedList.tail();
+        Assert.assertEquals(null, result.first());
+        Assert.assertEquals(0, result.size());
+    }
 }

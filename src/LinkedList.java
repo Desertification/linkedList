@@ -42,7 +42,11 @@ public class LinkedList<T> {
      * @return the head of the list
      */
     public T first() {
-        return head.get();
+        if (head == null){
+            return null;
+        } else {
+            return head.get();
+        }
     }
 
     /**
@@ -86,6 +90,9 @@ public class LinkedList<T> {
     }
 
     private int count(){
+        if (head == null){
+            return 0;
+        }
         int total = 1;
         while(head.next() != null){
             total++;
