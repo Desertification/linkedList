@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Test;
  */
 class LinkedListTest {
     @Test
+    void find() {
+        Assert.assertTrue("1",linkedList.find("1"));
+    }
+
+    @Test
     void last() {
         Assert.assertEquals("1",linkedList.last());
         linkedList.prepend("2");

@@ -61,6 +61,21 @@ public class LinkedList<T> {
     }
 
     /**
+     * find the element in the list
+     * @param element to find
+     * @return true if element is in the list
+     */
+    public boolean find(T element){
+        Node cursor = head;
+        do{
+            if (cursor.get().equals(element)){
+                return true;
+            }
+        } while (cursor.next() != null);
+        return false;
+    }
+
+    /**
      * @return the linked list without the head element
      */
     public LinkedList<T> tail(){
