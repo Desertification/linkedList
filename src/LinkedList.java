@@ -25,7 +25,7 @@ public class LinkedList<T> {
 
     private LinkedList(Node node){
         head = node;
-        size = count();
+        size = count(head,0);
     }
 
     /**
@@ -118,15 +118,36 @@ public class LinkedList<T> {
         return size == 0;
     }
 
-    private int count(){
-        if (head == null){
+//    private int count(){
+//        if (head == null){
+//            return 0;
+//        }
+//        int total = 1;
+//        while(head.next() != null){
+//            total++;
+//        }
+//        return total;
+//        return countRecusive(head,1);
+//    }
+
+    private int countRecusive(Node current, int total){
+        if (current == null){
             return 0;
-        }
-        int total = 1;
-        while(head.next() != null){
+        }else if (current.next() != null) {
             total++;
+            return countRecusive(current.next(),total);
+        } else {
+            return total;
         }
-        return total;
     }
+
+    // teacher solution
+    private int count(Node current, int total){
+        if (current == null){
+            return total;
+        }
+        return count(current.next(), ++total);
+    }
+
 
 }
