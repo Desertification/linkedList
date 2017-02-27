@@ -53,11 +53,14 @@ public class LinkedList<T> {
      * @return the last element of the list
      */
     public T last() {
-        Node cursor = head;
-        while (cursor.next() != null){
-            cursor = cursor.next();
+        return lastRecusive(head).get();
+    }
+
+    private Node lastRecusive(Node current){
+        if (current.next() == null){
+            return current;
         }
-        return cursor.get();
+        return lastRecusive(current.next());
     }
 
     /**
