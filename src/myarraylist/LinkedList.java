@@ -1,3 +1,5 @@
+package myarraylist;
+
 /**
  * Created by thoma on 17-Feb-17.
  */
@@ -85,6 +87,48 @@ public class LinkedList<T> {
         return new LinkedList<T>(head.next());
     }
 
+    /**
+     * @return true if empty, false if the linked list contains elements
+     */
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    private int countRecusive(Node current, int total){
+        if (current == null){
+            return 0;
+        }else if (current.next() != null) {
+            total++;
+            return countRecusive(current.next(),total);
+        } else {
+            return total;
+        }
+    }
+
+//    private int count(){
+//        if (head == null){
+//            return 0;
+//        }
+//        int total = 1;
+//        while(head.next() != null){
+//            total++;
+//        }
+//        return total;
+//        return countRecusive(head,1);
+//    }
+
+    // teacher solution
+    private int count(Node current, int total){
+        if (current == null){
+            return total;
+        }
+        return count(current.next(), ++total);
+    }
+
     private class Node {
         private T element;
         private Node next;
@@ -102,51 +146,9 @@ public class LinkedList<T> {
             return element;
         }
 
-        public Node next(){
+        public Node next() {
             return next;
         }
-    }
-
-    /**
-     * @return true if empty, false if the linked list contains elements
-     */
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-//    private int count(){
-//        if (head == null){
-//            return 0;
-//        }
-//        int total = 1;
-//        while(head.next() != null){
-//            total++;
-//        }
-//        return total;
-//        return countRecusive(head,1);
-//    }
-
-    private int countRecusive(Node current, int total){
-        if (current == null){
-            return 0;
-        }else if (current.next() != null) {
-            total++;
-            return countRecusive(current.next(),total);
-        } else {
-            return total;
-        }
-    }
-
-    // teacher solution
-    private int count(Node current, int total){
-        if (current == null){
-            return total;
-        }
-        return count(current.next(), ++total);
     }
 
 

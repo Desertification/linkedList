@@ -1,3 +1,5 @@
+package myarraylist;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,6 +8,8 @@ import org.junit.jupiter.api.Test;
  * Created by thoma on 17-Feb-17.
  */
 class LinkedListTest {
+    LinkedList<String> linkedList;
+
     @Test
     void find() {
         Assert.assertTrue("1",linkedList.find("1"));
@@ -26,8 +30,6 @@ class LinkedListTest {
         Assert.assertEquals("1", result.first());
         Assert.assertEquals(1, result.size());
     }
-
-    LinkedList<String> linkedList;
 
     @BeforeEach
     void setUp() {
