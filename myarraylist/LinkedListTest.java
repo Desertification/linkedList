@@ -12,15 +12,15 @@ class LinkedListTest {
 
     @Test
     void find() {
-        Assert.assertTrue("1",linkedList.find("1"));
+        Assert.assertTrue("1", linkedList.find("1"));
     }
 
     @Test
     void last() {
-        Assert.assertEquals("1",linkedList.last());
+        Assert.assertEquals("1", linkedList.last());
         linkedList.prepend("2");
-        Assert.assertEquals("2",linkedList.first());
-        Assert.assertEquals("1",linkedList.last());
+        Assert.assertEquals("2", linkedList.first());
+        Assert.assertEquals("1", linkedList.last());
     }
 
     @Test
@@ -58,7 +58,7 @@ class LinkedListTest {
     }
 
     @org.junit.jupiter.api.Test
-    void testTailWithOneElement(){
+    void testTailWithOneElement() {
         LinkedList<String> result = linkedList.tail();
         Assert.assertEquals(null, result.first());
         Assert.assertEquals(0, result.size());

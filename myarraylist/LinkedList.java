@@ -25,9 +25,9 @@ public class LinkedList<T> {
         size = 1;
     }
 
-    private LinkedList(Node node){
+    private LinkedList(Node node) {
         head = node;
-        size = count(head,0);
+        size = count(head, 0);
     }
 
     /**
@@ -44,7 +44,7 @@ public class LinkedList<T> {
      * @return the head of the list
      */
     public T first() {
-        if (head == null){
+        if (head == null) {
             return null;
         } else {
             return head.get();
@@ -58,8 +58,8 @@ public class LinkedList<T> {
         return lastRecusive(head).get();
     }
 
-    private Node lastRecusive(Node current){
-        if (current.next() == null){
+    private Node lastRecusive(Node current) {
+        if (current.next() == null) {
             return current;
         }
         return lastRecusive(current.next());
@@ -67,13 +67,14 @@ public class LinkedList<T> {
 
     /**
      * find the element in the list
+     *
      * @param element to find
      * @return true if element is in the list
      */
-    public boolean find(T element){
+    public boolean find(T element) {
         Node cursor = head;
-        do{
-            if (cursor.get().equals(element)){
+        do {
+            if (cursor.get().equals(element)) {
                 return true;
             }
         } while (cursor.next() != null);
@@ -83,7 +84,7 @@ public class LinkedList<T> {
     /**
      * @return the linked list without the head element
      */
-    public LinkedList<T> tail(){
+    public LinkedList<T> tail() {
         return new LinkedList<T>(head.next());
     }
 
@@ -98,12 +99,12 @@ public class LinkedList<T> {
         return size == 0;
     }
 
-    private int countRecusive(Node current, int total){
-        if (current == null){
+    private int countRecusive(Node current, int total) {
+        if (current == null) {
             return 0;
-        }else if (current.next() != null) {
+        } else if (current.next() != null) {
             total++;
-            return countRecusive(current.next(),total);
+            return countRecusive(current.next(), total);
         } else {
             return total;
         }
@@ -122,8 +123,8 @@ public class LinkedList<T> {
 //    }
 
     // teacher solution
-    private int count(Node current, int total){
-        if (current == null){
+    private int count(Node current, int total) {
+        if (current == null) {
             return total;
         }
         return count(current.next(), ++total);
