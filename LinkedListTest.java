@@ -1,66 +1,79 @@
 package myLinkedList;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
- * Created by thoma on 17-Feb-17.
+ * Created by thoma on 05-Mar-17.
  */
 class LinkedListTest {
     LinkedList<String> linkedList;
-
-    @Test
-    void find() {
-        Assert.assertTrue("1", linkedList.find("1"));
-    }
-
-    @Test
-    void last() {
-        Assert.assertEquals("1", linkedList.last());
-        linkedList.prepend("2");
-        Assert.assertEquals("2", linkedList.first());
-        Assert.assertEquals("1", linkedList.last());
-    }
-
-    @Test
-    void tail() {
-        linkedList.prepend("2");
-        LinkedList<String> result = linkedList.tail();
-        Assert.assertEquals("1", result.first());
-        Assert.assertEquals(1, result.size());
-    }
 
     @BeforeEach
     void setUp() {
         linkedList = new LinkedList<String>("1");
     }
 
-    @org.junit.jupiter.api.Test
-    void testEmptyList() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        Assert.assertEquals(0, linkedList.size());
-        Assert.assertEquals(true, linkedList.isEmpty());
-    }
-
-    @org.junit.jupiter.api.Test
+    @Test
     void prepend() {
         linkedList.prepend("2");
-        Assert.assertEquals("2", linkedList.first());
-        Assert.assertEquals(2, linkedList.size());
+        assertEquals("2", linkedList.first());
+        assertEquals(2, linkedList.size());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    void append() {
+        linkedList.append("2");
+        assertEquals("2", linkedList.last());
+    }
+
+    @Test
     void first() {
-        Assert.assertEquals("1", linkedList.first());
-        Assert.assertEquals(1, linkedList.size());
-        Assert.assertEquals(false, linkedList.isEmpty());
+        assertEquals("1", linkedList.first());
+        assertEquals(false, linkedList.isEmpty());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    void last() {
+        assertEquals("1", linkedList.last());
+        linkedList.prepend("2");
+        assertEquals("2", linkedList.first());
+        assertEquals("1", linkedList.last());
+    }
+
+    @Test
+    void find() {
+        assertTrue(linkedList.find("1"));
+    }
+
+    @Test
+    void tail() {
+        linkedList.prepend("2");
+        LinkedList<String> result = linkedList.tail();
+        assertEquals("1", result.first());
+        assertEquals(1, result.size());
+    }
+
+    @Test
     void testTailWithOneElement() {
         LinkedList<String> result = linkedList.tail();
-        Assert.assertEquals(null, result.first());
-        Assert.assertEquals(0, result.size());
+        assertEquals(null, result.first());
+        assertEquals(0, result.size());
     }
+
+    @Test
+    void size() {
+        assertEquals(1, linkedList.size());
+    }
+
+    @Test
+    void isEmpty() {
+        LinkedList<String> linkedList = new LinkedList<>();
+        assertEquals(0, linkedList.size());
+        assertEquals(true, linkedList.isEmpty());
+    }
+
 }
