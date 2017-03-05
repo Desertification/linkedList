@@ -40,6 +40,18 @@ public class LinkedList<T> {
         size++;
     }
 
+    public void append(T element) {
+        lastNode().next = new Node(element);
+    }
+
+    private Node lastNode() {
+        Node cursor = head;
+        while (cursor.next() != null) {
+            cursor = cursor.next();
+        }
+        return cursor;
+    }
+
     /**
      * @return the head of the list
      */
