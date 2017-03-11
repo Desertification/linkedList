@@ -42,6 +42,7 @@ public class LinkedList<T> {
 
     public void append(T element) {
         lastNode().next = new Node(element);
+        size++;
     }
 
     private Node lastNode() {

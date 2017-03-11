@@ -27,7 +27,9 @@ class LinkedListTest {
     @Test
     void append() {
         linkedList.append("2");
+        assertEquals("1", linkedList.first());
         assertEquals("2", linkedList.last());
+        assertEquals(2, linkedList.size());
     }
 
     @Test
