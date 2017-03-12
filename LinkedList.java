@@ -45,6 +45,23 @@ public class LinkedList<T> {
         size++;
     }
 
+    public void remove(T element) {
+        Node previous = null;
+        Node cursor = head;
+        do {
+            if (cursor.get().equals(element)) {
+                if (previous == null) {
+                    head = cursor.next();
+                } else {
+                    previous.next = cursor.next();
+                }
+                break;
+            }
+            previous = cursor;
+            cursor = cursor.next();
+        } while (cursor.next() != null);
+    }
+
     private Node lastNode() {
         Node cursor = head;
         while (cursor.next() != null) {
@@ -84,7 +101,7 @@ public class LinkedList<T> {
      * @param element to find
      * @return true if element is in the list
      */
-    public boolean find(T element) {
+    public boolean any(T element) {
         Node cursor = head;
         do {
             if (cursor.get().equals(element)) {
