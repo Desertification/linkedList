@@ -5,6 +5,7 @@ package myLinkedList;
  */
 public class LinkedListIterator<T> implements Iterator<T> {
     private LinkedList<T> linkedList;
+    private boolean firstIteration = true;
 
     public LinkedListIterator(LinkedList<T> linkedList) {
         this.linkedList = linkedList;
@@ -12,12 +13,20 @@ public class LinkedListIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return linkedList.tail().size() != 0;
+        if (firstIteration) {
+            return linkedList.size() != 0;
+        } else {
+            return linkedList.tail().size() != 0;
+        }
     }
 
     @Override
     public T next() {
-        linkedList = linkedList.tail();
+        if (firstIteration) {
+            firstIteration = false;
+        } else {
+            linkedList = linkedList.tail();
+        }
         return linkedList.first();
     }
 }

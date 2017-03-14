@@ -18,9 +18,8 @@ class LinkedListTest {
 
     @Test
     void iterator() {
-        linkedList.append("2");
         Iterator<String> iterator = linkedList.iterator();
-        assertEquals("2", iterator.next());
+        assertEquals("1", iterator.next());
         assertFalse(iterator.hasNext());
     }
 

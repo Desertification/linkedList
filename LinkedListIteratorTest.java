@@ -22,11 +22,13 @@ class LinkedListIteratorTest {
     void hasNext() {
         assertTrue(linkedListIterator.hasNext());
         linkedListIterator.next();
+        linkedListIterator.next();
         assertFalse(linkedListIterator.hasNext());
     }
 
     @Test
     void next() {
+        assertEquals("1", linkedListIterator.next());
         assertEquals("2", linkedListIterator.next());
     }
 
