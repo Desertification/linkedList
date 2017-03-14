@@ -3,8 +3,7 @@ package myLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by thoma on 05-Mar-17.
@@ -15,6 +14,14 @@ class LinkedListTest {
     @BeforeEach
     void setUp() {
         linkedList = new LinkedList<String>("1");
+    }
+
+    @Test
+    void iterator() {
+        linkedList.append("2");
+        Iterator<String> iterator = linkedList.iterator();
+        assertEquals("2", iterator.next());
+        assertFalse(iterator.hasNext());
     }
 
     @Test

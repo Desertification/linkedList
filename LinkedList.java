@@ -30,6 +30,10 @@ public class LinkedList<T> {
         size = count(head, 0);
     }
 
+    public Iterator<T> iterator() {
+        return new LinkedListIterator<>(this);
+    }
+
     /**
      * prepends the element to the linked list
      *
