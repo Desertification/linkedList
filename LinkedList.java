@@ -45,8 +45,12 @@ public class LinkedList<T> {
     }
 
     public void append(T element) {
-        lastNode().next = new Node(element);
-        size++;
+        if (size == 0) {
+            prepend(element);
+        } else {
+            lastNode().next = new Node(element);
+            size++;
+        }
     }
 
     public void remove(T element) {

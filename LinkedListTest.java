@@ -51,6 +51,14 @@ class LinkedListTest {
     }
 
     @Test
+    void appendWhenEmpty() {
+        linkedList = new LinkedList<>();
+        linkedList.append("1");
+        assertEquals("1", linkedList.first());
+        assertEquals(1, linkedList.size());
+    }
+
+    @Test
     void first() {
         assertEquals("1", linkedList.first());
         assertEquals(false, linkedList.isEmpty());
