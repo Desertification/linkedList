@@ -53,9 +53,15 @@ public class LinkedList<T> {
         }
     }
 
+    // todo refactor
     public void remove(T element) {
         Node previous = null;
         Node cursor = head;
+
+        if (isEmpty()) {
+            return;
+        }
+
         do {
             if (cursor.get().equals(element)) {
                 if (previous == null) {
