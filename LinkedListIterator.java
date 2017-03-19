@@ -14,9 +14,9 @@ public class LinkedListIterator<T> implements Iterator<T> {
     @Override
     public boolean hasNext() {
         if (firstIteration) {
-            return linkedList.size() != 0;
+            return !linkedList.isEmpty();
         } else {
-            return linkedList.tail().size() != 0;
+            return !linkedList.isEmpty() && (!linkedList.tail().isEmpty());
         }
     }
 
