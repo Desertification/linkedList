@@ -69,6 +69,7 @@ public class LinkedList<T> {
                 } else {
                     previous.next = cursor.next();
                 }
+                size--;
                 break;
             }
             previous = cursor;
