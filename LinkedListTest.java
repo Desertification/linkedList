@@ -36,6 +36,20 @@ class LinkedListTest {
     }
 
     @Test
+    void removeMultiple() {
+        linkedList.append("2");
+        linkedList.append("3");
+        linkedList.append("4");
+
+        linkedList.remove("2");
+        assertEquals("1", linkedList.first());
+        linkedList.remove("1");
+        assertEquals("3", linkedList.first());
+        linkedList.remove("4");
+        assertEquals("3", linkedList.first());
+    }
+
+    @Test
     void prepend() {
         linkedList.prepend("2");
         assertEquals("2", linkedList.first());
